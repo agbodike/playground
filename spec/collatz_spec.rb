@@ -9,11 +9,23 @@ describe Collatz do
       end
 
       it "returns 2 when 4 is passed" do
-        expect(described_class.calculate_steps(2)).to eq 1
+        expect(described_class.calculate_steps(4)).to eq 2
       end
 
       it "returns 7 when 3 is passed" do
-        expect(described_class.calculate_steps(2)).to eq 1
+        expect(described_class.calculate_steps(3)).to eq 7
+      end
+
+      it "returns 111 when 27 is passed" do
+        expect(described_class.calculate_steps(27)).to eq 111
+      end
+
+      it "returns 113 when 110 is passed" do
+        expect(described_class.calculate_steps(110)).to eq 113
+      end
+
+      it "returns 35 when 473 is passed" do
+        expect(described_class.calculate_steps(473)).to eq 35
       end
     end
 
