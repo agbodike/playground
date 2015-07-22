@@ -1,5 +1,11 @@
 class Collatz
+  class InvalidArgumentError < StandardError; end
+  class ValidationError < StandardError; end
+
   def self.calculate_steps(n)
+    raise Collatz::InvalidArgumentError unless n.is_a? Integer
+    raise Collatz::ValidationError if n < 2
+
     return 1 if n == 2
     case n % 2
     when 0

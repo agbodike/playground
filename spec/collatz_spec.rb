@@ -30,13 +30,18 @@ describe Collatz do
     end
 
     context 'sad path' do
-      context 'when the value is less than 1' do
-        xit 'raises a validation exception' do
+      context 'when the value is less than 2' do
+        it 'raises a validation exception' do
+          expect { described_class.calculate_steps(1)  }.to raise_error Collatz::ValidationError
+          expect { described_class.calculate_steps(0)  }.to raise_error Collatz::ValidationError
+          expect { described_class.calculate_steps(-1) }.to raise_error Collatz::ValidationError
         end
       end
 
       context 'when the value is not an integer' do
-        xit 'raises an invalid argument exception' do
+        it 'raises an invalid argument exception' do
+          expect { described_class.calculate_steps(2.1)  }.to raise_error Collatz::InvalidArgumentError
+          expect { described_class.calculate_steps('a')  }.to raise_error Collatz::InvalidArgumentError
         end
       end
     end
